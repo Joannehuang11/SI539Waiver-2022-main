@@ -2,6 +2,71 @@ body {
     background: white;
 }
 
+h1 {
+    text-align: center;
+    border: 1px black solid;
+    margin: 12px 0px 0px 0px;
+    padding: 12px 0px 12px 0px;
+}
+
+footer {
+    text-align: center;
+    margin: 12px 0px 0px 0px;
+    padding: 12px 0px 12px 0px;
+}
+
+#maincontent {
+    background: lightgray;
+    padding: 20px;
+    width: 100%;
+}
+
+.container {
+    /* The container class should use grid */
+    display: grid;
+    /* Take up 70% of the screen but have a maximum width of 375px. */
+    width: 70%;
+    max-width: 375px;
+    /* Be centered on the screen. */
+    margin: auto;
+    /* Have a single column that takes up the entire width of the grid.  (Use fr or %) */
+    grid-template-columns: 1fr;
+    /* other */
+    background: white;
+    border: 4px black solid;
+}
+
+.container figure{
+    /* Shrink/grow with the browser and fit within the grid columns without using overflow hidden*/
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    /* other */
+    margin: 4px;
+    border: 1px black solid;
+}
+
+.container figure img{
+    /* Shrink/grow with the browser and fit within the grid columns without using overflow hidden*/
+    width: 100%;
+    height: auto;
+    /* other */
+    border-bottom: 4px blue solid;
+}
+
+.container figure figcaption{
+    /* Shrink/grow with the browser and fit within the grid columns without using overflow hidden*/
+    font-size: 3.5vw;
+    /* Centered */
+    text-align: center;
+    /* The first letter of each word in the caption should be uppercase. */
+    text-transform: capitalize;
+    /* other */
+    margin: 4px;
+    
+}
+
 @media screen and ( min-width: 650px) {
     body {
         background: red;

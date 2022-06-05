@@ -204,7 +204,7 @@ footer+p {
 @media screen and ( min-width: 1050px) {
     .container > :nth-child(n) {
         /* ALL figure elements should have a width of 75% and a margin of 20px on the bottom. */
-        width: 70%;
+        width: 75%;
         height: auto;
         margin-bottom: 20px;
         /* Match the layout so that each child element covers one column */
@@ -224,7 +224,7 @@ footer+p {
         grid-gap: 0;
         /* Center the children horizontally */
         justify-items: center;
-        /* Ensure that  the figures don’t exceed the grid container. */
+        /* Ensure that the figures don’t exceed the grid container. */
         overflow: hidden;
     }
 
@@ -232,12 +232,12 @@ footer+p {
     .container > :nth-child(2n+1) {
         transform: rotate(-15deg);
         z-index: 1;
-        /* margin-right: 6%; */
+        margin-right: 6%;
     }
     .container > :nth-child(2n) {
         transform: rotate(15deg);
         z-index: 1;
-        /* margin-left: 6%; */
+        margin-left: 6%;
     }
 
     /* The last child covers two columns */
@@ -245,6 +245,7 @@ footer+p {
         grid-column: span 2;
         transform: rotate(0deg);
         z-index: 0;
-        /* margin: 0; */
+        margin: 0;
+        margin-bottom: 20px;
     }
 }

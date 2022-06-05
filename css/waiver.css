@@ -133,6 +133,7 @@ footer+p {
     }
     .container figure figcaption{
         font-size: 3vmin;
+    }
 }
 
 
@@ -160,9 +161,41 @@ footer+p {
 
 
 
-@media screen and ( min-width: 950px) {
-    body {
-        background: yellow;
+@media screen and ( min-width: 900px) {
+    /* The container class should now use flex and lay out the children images as shown. */
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        /* other */
+        padding: 1%;
+    }
+
+    /* The figure elements should have a width of 20% except for every 4th element that should have a width of 40%  and a 10px border. */
+    .container figure {
+        flex: 0;
+        flex-basis: auto;
+        width: 20%;
+        height: auto;
+    }
+    .container > :nth-child(4n) {
+        flex: 0;
+        flex-basis: auto;
+        width: 40%;
+        height: auto;
+        border: 10px black solid
+    }
+
+    /* The 2nd figure (the one with the caption “mountain skyline” should be the last image displayed. */
+    .container > :nth-child(2) {
+        order: 1;
+    }
+
+    /* other */
+    .container figure figcaption{
+        font-size: 2.5vmin;
     }
 }
 

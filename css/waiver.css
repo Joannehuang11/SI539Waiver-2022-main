@@ -26,6 +26,10 @@ footer+p {
     text-align: center;
 }
 
+.jump {
+    display: none;
+}
+
 #maincontent {
     background: lightgray;
     padding-top: 20px;
@@ -42,7 +46,7 @@ footer+p {
     /* Be centered on the screen. */
     margin: auto;
     /* Have a single column that takes up the entire width of the grid.  (Use fr or %) */
-    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     /* other */
     background: white;
     border: 4px black solid;
@@ -65,7 +69,6 @@ footer+p {
     /* Shrink/grow with the browser and fit within the grid columns without using overflow hidden*/
     width: 96%;
     height: auto;
-    box-sizing: border-box;
     /* other */
     align-self: center;
     border: 2%;
@@ -81,15 +84,59 @@ footer+p {
     text-transform: capitalize;
     /* other */
     margin: 4px;
-    
 }
 
 
 
 @media screen and ( min-width: 650px) {
-    body {
-        background: red;
+    .jump {
+        /* “Skip to main content” should appear on the screen the first time we hit the tab key. */
+        display: inline;
     }
+
+    .container {
+        /* Take up 95% and no longer use a maximum width. */
+        width: 95%;
+        max-width: none;
+        /* Use the image concrete_seamless (from the images folder) as a background image. */
+        background: url(../images/concrete_seamless.png);
+        /* Have three equal columns that each cover 25% of the grid width. */
+        grid-template-columns: 25% 25% 25%;
+        column-gap: 6%;
+        /* The children should be spaced out to match our example – equal spacing around each side of the children */
+        justify-content: center;
+    }
+
+    .container figure {
+        /* Cover two columns */
+        grid-column: span 2;
+        /* other */
+        border-bottom: none;
+        border: 3px gray solid;
+        padding: 4px;
+        margin-top: 0px;
+    }
+
+    /* The children in rows 1, 3, 5, etc should start in the 1st column */
+    .container > :nth-child(2n+1) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    
+    /* The children in all other rows start in the 2nd column. */
+    .container > :nth-child(2n) {
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+
+    /* other */
+    .container figure img {
+        width: 100%;
+    }
+
+    .container figure figcaption{
+        /* other */
+        font-size: 3vmin;
 }
 
 

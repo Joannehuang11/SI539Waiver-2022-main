@@ -64,6 +64,7 @@ footer+p {
     margin-top: 2%;
     border-bottom: 3px lightgray solid;
     padding-bottom: 0px;
+    background-color: white;
 }
 
 .container figure img{
@@ -150,7 +151,6 @@ footer+p {
     /* Lay out the children elements as far to the left and right of the grid as possible. */
     .container > :nth-child(n) {
         grid-column-start: span 2;
-        grid-column-end: auto;
     }
 
     /* The last child always starts in the 2nd column. */
@@ -202,7 +202,49 @@ footer+p {
 
 
 @media screen and ( min-width: 1050px) {
-    body {
-        background: green;
+    .container > :nth-child(n) {
+        /* ALL figure elements should have a width of 75% and a margin of 20px on the bottom. */
+        width: 70%;
+        height: auto;
+        margin-bottom: 20px;
+        /* Match the layout so that each child element covers one column */
+        grid-column: auto;
+    }
+
+    /* The 2nd figure should appear back in the proper order. */
+    .container > :nth-child(2) {
+        order: initial;
+    }
+
+    .container {
+        /* The container class should use the grid property again */
+        display: grid;
+        /* Have two equal columns that together cover the entire width of the grid */
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0;
+        /* Center the children horizontally */
+        justify-items: center;
+        /* Ensure that  the figures don’t exceed the grid container. */
+        overflow: hidden;
+    }
+
+    /* Rotate every other child element (except the last one) by 15 degrees or -15 degrees to match the screenshot. */
+    .container > :nth-child(2n+1) {
+        transform: rotate(-15deg);
+        z-index: 1;
+        /* margin-right: 6%; */
+    }
+    .container > :nth-child(2n) {
+        transform: rotate(15deg);
+        z-index: 1;
+        /* margin-left: 6%; */
+    }
+
+    /* The last child covers two columns */
+    .container > :last-child {
+        grid-column: span 2;
+        transform: rotate(0deg);
+        z-index: 0;
+        /* margin: 0; */
     }
 }

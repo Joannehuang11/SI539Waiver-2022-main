@@ -1,3 +1,4 @@
+/* other */
 html {
     margin: 0px;
 }
@@ -133,9 +134,7 @@ footer+p {
     .container figure img {
         width: 100%;
     }
-
     .container figure figcaption{
-        /* other */
         font-size: 3vmin;
 }
 
@@ -144,6 +143,17 @@ footer+p {
 @media screen and ( min-width: 750px) {
     body {
         background: orange;
+    }
+
+    .container {
+        /* Have four equal columns that are each 20% of the width of the grid. */
+        grid-template-columns: 20% 20% 20% 20%;
+    }
+
+    /* Lay out the children elements as far to the left and right of the grid as possible. */
+    .container > :nth-child(n) {
+        grid-column-start: span 2;
+        grid-column-end: auto;
     }
 }
 

@@ -1,5 +1,12 @@
+html {
+    margin: 0px;
+}
+
 body {
     background: white;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
 }
 
 h1 {
@@ -15,9 +22,14 @@ footer {
     padding: 12px 0px 12px 0px;
 }
 
+footer+p {
+    text-align: center;
+}
+
 #maincontent {
     background: lightgray;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     width: 100%;
 }
 
@@ -40,24 +52,29 @@ footer {
     /* Shrink/grow with the browser and fit within the grid columns without using overflow hidden*/
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 1;
+    flex-basis: 0;
+    flex: 1;
     /* other */
-    margin: 4px;
-    border: 1px black solid;
+    margin: 0px;
+    margin-top: 2%;
+    border-bottom: 3px lightgray solid;
+    padding-bottom: 0px;
 }
 
 .container figure img{
     /* Shrink/grow with the browser and fit within the grid columns without using overflow hidden*/
-    width: 100%;
+    width: 96%;
     height: auto;
+    box-sizing: border-box;
     /* other */
-    border-bottom: 4px blue solid;
+    align-self: center;
+    border: 2%;
+    border-bottom: 6px blue solid;
 }
 
 .container figure figcaption{
     /* Shrink/grow with the browser and fit within the grid columns without using overflow hidden*/
-    font-size: 3.5vw;
+    font-size: 3.5vmin;
     /* Centered */
     text-align: center;
     /* The first letter of each word in the caption should be uppercase. */
@@ -67,11 +84,15 @@ footer {
     
 }
 
+
+
 @media screen and ( min-width: 650px) {
     body {
         background: red;
     }
 }
+
+
 
 @media screen and ( min-width: 750px) {
     body {
@@ -79,11 +100,15 @@ footer {
     }
 }
 
+
+
 @media screen and ( min-width: 950px) {
     body {
         background: yellow;
     }
 }
+
+
 
 @media screen and ( min-width: 1050px) {
     body {

@@ -249,3 +249,19 @@ footer+p {
         margin-bottom: 20px;
     }
 }
+
+/* Use keyframes to alter the opacity of the first image from complete transparency to full opacity over the course of 10 seconds.   */
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.logo {
+    animation: fadein 10s;
+}
+
+/* Write a media query to remove this animation when the user has reduced motion as a preference. */
+@media (prefers-reduced-motion: reduce) {
+    .logo {
+        animation: none;
+    }
+}

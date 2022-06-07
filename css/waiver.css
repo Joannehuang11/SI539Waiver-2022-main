@@ -68,7 +68,6 @@ footer+p {
     /* Shrink/grow with the browser and fit within the grid columns without using overflow hidden*/
     display: flex;
     flex-direction: column;
-    flex-basis: 0;
     flex: 1;
     /* other */
     margin: 0px;
@@ -81,7 +80,6 @@ footer+p {
 .container figure img{
     /* Shrink/grow with the browser and fit within the grid columns without using overflow hidden*/
     width: 96%;
-    height: auto;
     /* other */
     align-self: center;
     border: 2%;
@@ -115,20 +113,20 @@ footer+p {
         background: url(../images/concrete_seamless.png);
         /* Have three equal columns that each cover 25% of the grid width. */
         grid-template-columns: 25% 25% 25%;
-        column-gap: 6%;
         /* The children should be spaced out to match our example – equal spacing around each side of the children */
-        justify-content: center;
+        justify-content: space-around;
     }
 
     .container figure {
         /* other */
+        margin-top: 0px;
         border-bottom: none;
         border: 3px gray solid;
         padding: 4px;
-        margin-top: 0px;
     }
 
     /* Cover two columns */
+    /* If we add more children the pattern should continue */
     /* The children in rows 1, 3, 5, etc should start in the 1st column */
     .container > :nth-child(2n+1) {
         grid-column: 1 / span 2;
@@ -155,11 +153,11 @@ footer+p {
         /* Have four equal columns that are each 20% of the width of the grid. */
         grid-template-columns: 20% 20% 20% 20%;
         /* Do NOT add any gap properties or properties that do not modify this view */
+        /* Lay out the children elements as far to the left and right of the grid as possible. */
         justify-content: space-between;
-        column-gap: 0 px;
     }
 
-    /* Lay out the children elements as far to the left and right of the grid as possible. */
+    /* Match the layout so that each child element covers two columns */
     .container > :nth-child(n) {
         grid-column-start: span 2;
     }
@@ -180,22 +178,18 @@ footer+p {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-evenly;
-        /* other */
-        padding: 1%;
     }
 
-    /* The figure elements should have a width of 20% except for every 4th element that should have a width of 40%  and a 10px border. */
+    /* The figure elements should have a width of 20% except for every 4th element that should have a width of 40% and a 10px border. */
     .container figure {
         flex: 0;
         flex-basis: auto;
         width: 20%;
-        height: auto;
     }
     .container > :nth-child(4n) {
         flex: 0;
         flex-basis: auto;
         width: 40%;
-        height: auto;
         border: 10px black solid
     }
 
@@ -216,10 +210,9 @@ footer+p {
     .container > :nth-child(n) {
         /* ALL figure elements should have a width of 75% and a margin of 20px on the bottom. */
         width: 75%;
-        height: auto;
         margin-bottom: 20px;
         /* Match the layout so that each child element covers one column */
-        grid-column: auto;
+        grid-column: initial;
     }
 
     /* The 2nd figure should appear back in the proper order. */
@@ -232,7 +225,6 @@ footer+p {
         display: grid;
         /* Have two equal columns that together cover the entire width of the grid */
         grid-template-columns: 1fr 1fr;
-        grid-gap: 0;
         /* Center the children horizontally */
         justify-items: center;
         /* Ensure that the figures don’t exceed the grid container. */
@@ -262,12 +254,12 @@ footer+p {
 }
 
 /* Use keyframes to alter the opacity of the first image from complete transparency to full opacity over the course of 10 seconds.   */
-@keyframes fadein {
+@keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 .logo {
-    animation: fadein 10s;
+    animation: fadeIn 10s;
 }
 
 /* Write a media query to remove this animation when the user has reduced motion as a preference. */
